@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+        {% if title %}
+                {{ title }}
+        {% else %}
+                Home
+        {% endif %}
+</title>
+<h1>Welcome {{ name }}, here are top destinations!</h1>
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+{% endwith %}
+</head>
+<a href='https://www.google.com'>goooogle</a>
+<body>
+        {% block content %}
+        {% endblock %}
+</body>
+</html>
+
