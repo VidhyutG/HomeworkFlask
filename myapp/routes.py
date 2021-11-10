@@ -1,15 +1,15 @@
 from myapp import myobj
 from myapp import db
-from myapp.forms import TopCites
+from myapp.forms import TopCities
 from myapp.models import City
 from flask import render_template, escape, flash, redirect
 
 @myobj.route("/", methods=['GET', 'POST'])
 def home():
-    title = "Top Cites"
+    title = "Top Cities"
     name = "Vidhyut"
     top_cities = City.query.all()
-    form = TopCites()
+    form = TopCities()
     if form.validate_on_submit():
         city = City(city_name = form.city_name.data, city_rank = form.city_rank.data, is_visited = form.is_visited.data)
         db.session.add(city)
